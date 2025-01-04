@@ -36,12 +36,21 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
+                        @can('user table')
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('users.index') }}">{{ __('Users') }}</a>
                         </li>
+                        @endcan
+                        @can('role table')
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('roles.index') }}">{{ __('Roles') }}</a>
                         </li>
+                        @endcan
+                        @can('post table')
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">{{ __('Posts') }}</a>
+                        </li>
+                        @endcan
                     </ul>
 
                     <!-- Right Side Of Navbar -->

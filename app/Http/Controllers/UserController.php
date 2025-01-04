@@ -9,6 +9,13 @@ use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:user table'])->only('index');
+        $this->middleware(['permission:create user'])->only(['create', 'store']);
+        $this->middleware(['permission:edit user'])->only(['edit', 'update']);
+    }
+
     public function index()
     {
         return view('users.index',[
