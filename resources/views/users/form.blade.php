@@ -29,6 +29,20 @@
                             </div>
                             @enderror
                         </div>
+                        <div class="mb-3">
+                            <label for="role" class="form-label">Role</label>
+                            <select class="form-select @error('role') is-invalid @enderror" id="role" name="role">
+                                <option value="">-- Select Role --</option>
+                                @foreach($roles as $role)
+                                <option value="{{ $role->name }}" {{ (old('role') ?? $user->roles->first()->name) == $role->name ? 'selected' : '' }}>{{ $role->name }}</option>
+                                @endforeach
+                            </select>
+                            @error('role')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
                         <button type="submit" class="btn btn-primary">
                         {{ $submit }}
                         </button>

@@ -23,7 +23,7 @@ class UserRequest extends FormRequest
     {
         return [
             'name'     => 'required',
-            'email'    => 'required|email|unique:users,email,' . $this->user,
+            'email'    => 'required|email|unique:users,email,' . $this->user->id,
         ];
     }
 }
